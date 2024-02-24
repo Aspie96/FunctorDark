@@ -1,7 +1,20 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
-  {{ end }}
+	<h1 id="site-title">{{ site.Title }}</h1>
+	{{ .Content }}
+	{{ range where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+		<article class="post-entry">
+			<header>
+				<h1><a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a></h1>
+				<p class="post-data">
+					{{ if (isset .Params "author") }}
+						by {{ .Params.author }}
+					{{ end }}
+					{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+					{{ $dateHuman := .Date | time.Format "2 January 2006" }}
+					on <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+				</p>
+			</header>
+			<p class="summary">{{ .Summary }}</p>
+		</article>
+	{{ end }}
 {{ end }}

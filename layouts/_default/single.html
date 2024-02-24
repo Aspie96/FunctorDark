@@ -1,10 +1,18 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+		<header id="post-header">
+			<h1>{{ .Title }}</h1>
 
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+			<p class="post-data">
+				{{ if (isset .Params "author") }}
+					by {{ .Params.author }}
+				{{ end }}
+				{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+				{{ $dateHuman := .Date | time.Format "2 January 2006" }}
+				on <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>{{ if (and .Lastmod (not (eq .Lastmod .Date)))}}{{ $dateMachine := .Lastmod | time.Format "2006-01-02T15:04:05-07:00" }}{{ $dateHuman := .Lastmod | time.Format "2 January 2006" }}, modified on <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>{{ end }}
+			</p>
+		</header>
 
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+		{{ .Content }}
+		{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+	</article>
 {{ end }}

@@ -1,22 +1,275 @@
-body {
-  color: #222;
-  font-family: sans-serif;
-  line-height: 1.5;
-  margin: 1rem;
-  max-width: 768px;
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
+	src: url(/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf);
 }
 
-header {
-  border-bottom: 1px solid #222;
-  margin-bottom: 1rem;
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
+	src: url(/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf);
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
+	src: url(/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf);
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
+	src: url(/fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf);
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: Metropolis;
+	src:
+		url(/fonts/Metropolis/TrueType/Metropolis-Regular.ttf) format("truetype"),
+		url(/fonts/Metropolis/OpenType/Metropolis-Regular.otf) format("opentype");
+}
+
+@font-face {
+	font-family: Metropolis;
+	src:
+		url(/fonts/Metropolis/TrueType/Metropolis-Bold.ttf) format("truetype"),
+		url(/fonts/Metropolis/TrueType/Metropolis-Bold.otf) format("opentype");
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: Metropolis;
+	src:
+		url(/fonts/Metropolis/TrueType/Metropolis-RegularItalic.ttf) format("truetype"),
+		url(/fonts/Metropolis/TrueType/Metropolis-RegularItalic.otf) format("opentype");
+	font-style: italic;
+}
+
+@font-face {
+	font-family: Metropolis;
+	src:
+		url(/fonts/Metropolis/TrueType/Metropolis-BlackItalic.ttf) format("truetype"),
+		url(/fonts/Metropolis/TrueType/Metropolis-BlackItalic.otf) format("opentype");
+	font-weight: bold;
+	font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Metropolis, sans-serif;
+}
+
+html {
+	box-sizing: border-box;
+	scrollbar-color: #789 #223;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	color: #CCC;
+	background-color: #111;
+	line-height: 1.5;
+	font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+}
+
+input, button, textarea, select {
+	font: inherit;
+}
+
+#root, #__next {
+	isolation: isolate;
+}
+
+main {
+	width: 55%;
+	margin: 0 auto;
+	padding-top: 20px;
+	font-size: 18px;
+	text-align: justify;
+}
+
+p {
+	margin-top: 10px;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
+ol, ul {
+	padding: 10px 25px 15px;
+}
+
+li {
+	margin: 2px 0;
+}
+
+#site-header {
+	background-color: #222;
+	overflow: hidden;
+	padding: 0 50px;
+	border-bottom: 1px solid #333;
+}
+
+#site-header #site-logo {
+	font-size: 25px;
+	float: left;
+	display: block;
+	font-family: Metropolis, sans-serif;
+	font-weight: bold;
+}
+
+#site-header #site-logo a {
+	display: inline-block;
+	line-height: 50px;
+	text-decoration: none;
+	color: #CCD;
+}
+
+#site-header nav ul {
+	float: right;
+	list-style-type: none;
+	padding: 0;
+}
+
+#site-header nav ul li {
+	float: left;
+	margin: 0;
+}
+
+#site-header nav ul li a {
+	display: inline-block;
+	font-size: 19px;
+	padding: 0 10px;
+	min-width: 70px;
+	line-height: 50px;
+	text-align: center;
+	text-decoration: none;
+	color: #DDD;
+	border-left: 1px solid #777;
+}
+
+#site-header nav ul li a.active, #site-header nav ul li a:hover {
+	text-decoration: underline #DDD;
+	text-underline-offset: 3px;
+	background-color: #333;
+	color: #EEE;
+}
+
+#post-header {
+	border-bottom: 1px solid #777;
+}
+
+#post-header h1 {
+	font-size: 36px;
+}
+
+#site-title {
+	text-align: center;
+	font-size: 40px;
+	border-bottom: 1px solid #777;
+	margin-bottom: 25px;
+}
+
+.post-data {
+	font-size: 15px;
+	color: #AAA;
+	margin: 0;
+}
+
+h1 {
+	text-align: left;
+	color: #DDD
+
+}
+
+h2, h3, h4, h5, h6 {
+	margin-top: 10px;
+	text-align: left;
+}
+
+.post-entry {
+	padding: 0 15px 10px;
+	border-radius: 5px;
+	background-image: linear-gradient(#222, #111);
+	margin: 10px 0;
+	border: 2px solid #222;
+}
+
+.post-entry header {
+	margin-bottom: 5px;
+}
+
+.post-entry .post-data {
+	margin: 0;
+}
+
+.post-entry .summary {
+	line-height: 1;
 }
 
 footer {
-  border-top: 1px solid #222;
-  margin-top: 1rem;
+	border-top: 1px solid #222;
+	margin-top: 1rem;
+	width: 55%;
+	margin: 0 auto;
 }
 
 a {
-  color: #00e;
-  text-decoration: none;
+	color: #0BD;
+}
+
+a:hover {
+	color: #0EF;
+	text-decoration-thickness: 0.125em;
+}
+
+a.external {
+	color: #1B4;
+}
+
+a.external:hover {
+	color: #0F0;
+}
+
+@media (max-width: 768px) {
+	main {
+		width: auto;
+		padding: 70px 40px 0;
+	}
+
+	footer {
+		width: auto;
+		padding: 70px 40px 0;
+	}
+
+	#site-header {
+		position: fixed;
+		width: 100%;
+		padding: 0 40px;
+	}
+
+	h1, #post-header h1 {
+		font-size: 30px;
+	}
+
+	.post-entry h1 {
+		font-size: 27px;
+	}
 }
